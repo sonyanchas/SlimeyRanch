@@ -22,7 +22,7 @@ public class GemController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) // When object hits an object tagged Player
         { 
             Destroy(gameObject);
-            gm.Score -= 100;
+            gm.Score += 100;
         }
     }
 }

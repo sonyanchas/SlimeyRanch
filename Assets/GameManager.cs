@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text ScoreUIText;
     public int Score;
-    [SerializeField] int TimeSet;
-    public int Timer;
+    public int Damage;
 
     // Start is called before the first frame update
     void Start()
     {
-        Score = 0; // Initialize score as 0
+        Score = 00000; // Initialize score as 0
+        Damage = 100;
 
     }
 
