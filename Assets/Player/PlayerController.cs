@@ -6,23 +6,48 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody2D rb;
+    AudioSource audioSource;
     [SerializeField] float Speed = 0f;
-    // Start is called before the first frame update
+    [SerializeField] float jump = 0f;
+    bool isMoving = false;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+      
         if (Input.GetKey(KeyCode.D))
         {
-           transform.Translate(Speed * Time.deltaTime * Vector2.right);
+            isMoving = true;
+            transform.Translate(Speed * Time.deltaTime * Vector2.right);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
+            isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.left);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
+        else
+        {
+            isMoving = false;
+            audioSource.Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+        }
+
     }
 }
