@@ -77,13 +77,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ladder"))
-        {
-            animator.SetBool("Left", false);
-            animator.SetBool("Right", false);
-            animator.SetBool("Up", true);
-            transform.Translate(Speed * Time.deltaTime * Vector2.up);
-        }
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             dam.Health -= 10;
