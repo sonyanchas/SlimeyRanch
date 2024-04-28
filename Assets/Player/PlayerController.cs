@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameManager gm;
     Collision2D collision;
+    GameManager dam;
+    public int health = 100;
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
+        dam = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -81,9 +84,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", true);
             transform.Translate(Speed * Time.deltaTime * Vector2.up);
         }
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            dam.Health -= 10;
+        }
+
+       }
     }
 
-}
+
 
 
 
