@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5832098498305096219}
   - component: {fileID: 276061286931453514}
+  - component: {fileID: -1208871749164348374}
   m_Layer: 0
   m_Name: Gem
-  m_TagString: Untagged
+  m_TagString: Gems
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1724861341
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1552106143, guid: e4c7ac6dd5a1c434db41e612c4501988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1208871749164348374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656364757747934068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88414d7430c3d47f99177397e9d64c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
