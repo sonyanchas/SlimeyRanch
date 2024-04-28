@@ -49,4 +49,7 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("runright", false);
         }
     }
-}
+    
+  }
+
+
