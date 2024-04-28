@@ -11,18 +11,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Speed = 0f;
     [SerializeField] float jump = 0f;
     bool isMoving = false;
+    Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();  // create a reference to our animator component
     }
 
     void Update()
     {
-      
+        animator.SetBool("Left", false);
+        animator.SetBool("Right", false);
+        
+
         if (Input.GetKey(KeyCode.D))
         {
+            animator.SetBool("Right", true); //set the right parameters true
+            animator.SetBool("Left", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.right);
             if (!audioSource.isPlaying)
@@ -32,6 +39,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
+            animator.SetBool("Left", true);
+            animator.SetBool("Right", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.left);
             if (!audioSource.isPlaying)
@@ -44,7 +53,7 @@ public class PlayerController : MonoBehaviour
             isMoving = false;
             audioSource.Stop();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
         }
