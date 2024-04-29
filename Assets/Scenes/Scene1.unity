@@ -442,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   jump: 8
+  health: 100
 --- !u!82 &217591844
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2108,14 +2109,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreUIText: {fileID: 817310808}
   Score: 0
-  Damage: 100
+  Damage: 0
   HealthUIText: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   Health: 100
 =======
   LivesUIText: {fileID: 909972020}
   Health: 0
 >>>>>>> Stashed changes
+=======
+  Health: 0
+>>>>>>> parent of 7df3dc5 (health)
+=======
+  Health: 0
+>>>>>>> parent of 7df3dc5 (health)
   Damage2: 0
   Lives: 3
 --- !u!1001 &796613805
