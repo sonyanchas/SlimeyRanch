@@ -100,10 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   MinX: 14.56
-  MaxX: 17.8
-  health: 100
-  maxHealth: 10
-  damageamount: 2
+  MaxX: 17.81
 --- !u!95 &3712609179514287640
 Animator:
   serializedVersion: 5

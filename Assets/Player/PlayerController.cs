@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameManager gm;
     Collision2D collision;
-  
+    public int health = 100;
 
     void Start()
     {
@@ -86,12 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            gm.Health -= 50;
-            Debug.Log("sis got hit");
-        }
-        if (gm.Health == 0)
-        {
-            gm.Lives -= 1;
+            gm.Health -= 10;
         }
         /*if (collision.gameObject.CompareTag("Enemy"))
         {
