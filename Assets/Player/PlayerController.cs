@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
 
-        if (transform.position.y > -6.66f)
+        if (transform.position.y < -6.66f)
         {
             if (gm.Lives <= 0)
             {
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                gm.Lives -= 1;
                 transform.position = new Vector3(-6.49f, -3.25f, 0f);
             }
         }
@@ -78,8 +79,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Right", false);
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
 
-
-
         }
 
     }
@@ -89,10 +88,10 @@ public class PlayerController : MonoBehaviour
         {
             gm.Health -= 10;
         }
-        if (collision.gameObject.CompareTag("Enemy"))
+        /*if (collision.gameObject.CompareTag("Enemy"))
         {
             gm.Health -= 10;
-        }
+        }*/
 
     }
     }

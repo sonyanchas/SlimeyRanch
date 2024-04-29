@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        ScoreUIText.text = Score.ToString(); // Update both strings to show score and time
-        HealthUIText.text = Health.ToString();
+        ScoreUIText.text = Score.ToString(); // Update both strings to show score
+        //HealthUIText.text = Health.ToString();
 
     }
 }
