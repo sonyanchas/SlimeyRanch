@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float MinX = 0f;
     [SerializeField] float MaxX = 0f;
     [SerializeField] float health, maxHealth = 10;
-    public int damageamount = 2;
     Animator animator;
     SpriteRenderer spriteRenderer;
     bool movingRight = true;
