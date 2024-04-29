@@ -442,7 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   jump: 8
-  health: 100
 --- !u!82 &217591844
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1957,9 +1956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreUIText: {fileID: 817310808}
   Score: 0
-  Damage: 0
+  Damage: 100
   HealthUIText: {fileID: 0}
-  Health: 0
+  Health: 100
   Damage2: 0
   Lives: 3
 --- !u!1001 &796613805
