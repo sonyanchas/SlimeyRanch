@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public string sceneName;
     Rigidbody2D rb;
     AudioSource audioSource;
     [SerializeField] float Speed = 0f;
@@ -79,6 +80,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Right", false);
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
 
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene(sceneName);
         }
 
     }
