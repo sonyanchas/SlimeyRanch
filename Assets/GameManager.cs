@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int Score;
     public int Damage;
     [SerializeField] TMP_Text HealthUIText;
+    [SerializeField] TMP_Text LivesUIText;
     public int Health;
     public int Damage2;
     public int Lives;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         
         ScoreUIText.text = Score.ToString(); // Update both strings to show score
+        LivesUIText.text = Lives.ToString(); // Update both strings to show score
         //HealthUIText.text = Health.ToString();
 
     }
