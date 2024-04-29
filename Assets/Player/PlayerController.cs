@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameManager gm;
     Collision2D collision;
-    GameManager dam;
     public int health = 100;
 
     void Start()
@@ -24,7 +23,6 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
-        dam = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -33,7 +31,17 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
 
-
+        if (transform.position.y > -6.66f)
+        {
+            if (gm.Lives <= 0)
+            {
+               Time.timeScale = 0;
+            }
+            else
+            {
+                transform.position = new Vector3(-6.49f, -3.25f, 0f);
+            }
+        }
         if (Input.GetKey(KeyCode.D))
         {
             animator.SetBool("Right", true); //set the right parameters true
@@ -75,14 +83,18 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            dam.Health -= 10;
+            gm.Health -= 10;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gm.Health -= 10;
         }
 
-       }
+    }
     }
 
 
