@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float Speed;
     [SerializeField] float MinX = 0f;
     [SerializeField] float MaxX = 0f;
+    [SerializeField] float health, maxHealth = 10;
     Animator animator;
     SpriteRenderer spriteRenderer;
     bool movingRight = true;
@@ -16,8 +17,21 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        health = maxHealth; 
     }
 
+    public void takedamage(float damageamount)
+    {
+        if (Input.GetButtonDown("Fire1") == true)
+        {
+            health -= damageamount;
+        }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     // FixedUpdate is called at fixed time intervals
     void FixedUpdate()
     {
@@ -50,6 +64,6 @@ public class EnemyController : MonoBehaviour
         }
     }
     
-  }
+ }
 
 
