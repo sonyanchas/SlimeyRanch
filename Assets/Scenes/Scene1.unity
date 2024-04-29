@@ -247,8 +247,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: MaxX
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MinX
       value: 13.79
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: Speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1065594987809179602, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: m_SortingLayer
@@ -2128,7 +2136,7 @@ MonoBehaviour:
   HealthUIText: {fileID: 0}
   LivesUIText: {fileID: 909972020}
   Health: 100
-  Damage2: 0
+  Ehealth: 10
   Lives: 3
 --- !u!1001 &796613805
 PrefabInstance:
@@ -2388,11 +2396,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MaxX
-      value: 122.76
+      value: 123
       objectReference: {fileID: 0}
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MinX
       value: 120.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: Speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1065594987809179602, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: m_SortingLayer
@@ -3824,11 +3836,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MaxX
-      value: 34.99
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MinX
       value: 32.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: Speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1065594987809179602, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: m_SortingLayer
@@ -4786,11 +4802,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MaxX
-      value: 60.47
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MinX
       value: 58.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: Speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1065594987809179602, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: m_SortingLayer
@@ -4874,11 +4894,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MaxX
-      value: 96.05
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: MinX
       value: 91.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -8091064421839579759, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
+      propertyPath: Speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1065594987809179602, guid: 94110ecfa0a31460faecdac5c3c8cc34, type: 3}
       propertyPath: m_SortingLayer

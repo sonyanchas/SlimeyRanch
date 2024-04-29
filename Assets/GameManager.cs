@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text HealthUIText;
     [SerializeField] TMP_Text LivesUIText;
     public int Health;
-    public int Damage2;
+    public int Ehealth;
     public int Lives;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         Score = 0 ; // Initialize score as 0
         Damage = 100;
         Health = 100;
-        Damage2 = 10;
+        Ehealth = 10;
         Lives = 3;
     }
 

@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
             {
                 gm.Lives -= 1;
                 transform.position = new Vector3(-6.49f, -3.25f, 0f);
+                gm.Health += 100;
             }
         }
         if (Input.GetKey(KeyCode.D))
@@ -91,7 +92,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            gm.Health -= 10;
+            gm.Health -= 20;
+
+        }
+        if (gm.Health == 0)
+        {
+            gm.Lives -= 1;
+            transform.position = new Vector3(-6.49f, -3.25f, 0f);
+            gm.Health += 100;
         }
         /*if (collision.gameObject.CompareTag("Enemy"))
         {
