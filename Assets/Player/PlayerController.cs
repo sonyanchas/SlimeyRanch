@@ -25,7 +25,26 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            gm.Health -= 20;
+            UnityEngine.UI.Image healthbar = gm.Healthbar;
+        }
+        if (gm.Health == 0)
+        {
+            gm.Lives -= 1;
+            transform.position = new Vector3(-6.49f, -3.25f, 0f);
+            gm.Health += 100;
 
+        }
+        /*if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gm.Health -= 10;
+        }*/
+
+    }
     void Update()
     {
         animator.SetBool("Left", false);
@@ -88,25 +107,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            gm.Health -= 20;
-
-        }
-        if (gm.Health == 0)
-        {
-            gm.Lives -= 1;
-            transform.position = new Vector3(-6.49f, -3.25f, 0f);
-            gm.Health += 100;
-        }
-        /*if (collision.gameObject.CompareTag("Enemy"))
-        {
-            gm.Health -= 10;
-        }*/
-
-    }
+    
     }
 
 

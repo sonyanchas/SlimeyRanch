@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c86daa163e89449b8092a629a4d001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Scene2
   Speed: 3
   jump: 8
   health: 100
@@ -2138,6 +2138,7 @@ MonoBehaviour:
   Health: 100
   Ehealth: 10
   Lives: 3
+  Healthbar: {fileID: 0}
 --- !u!1001 &796613805
 PrefabInstance:
   m_ObjectHideFlags: 0
