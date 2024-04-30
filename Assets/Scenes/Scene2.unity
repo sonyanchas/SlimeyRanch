@@ -377,8 +377,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c86daa163e89449b8092a629a4d001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
   Speed: 3
   jump: 8
+  MinX: -6.49
+  MinY: -3.25
   health: 100
 --- !u!82 &217591844
 AudioSource:
@@ -2202,8 +2205,9 @@ MonoBehaviour:
   HealthUIText: {fileID: 0}
   LivesUIText: {fileID: 0}
   Health: 100
-  Damage2: 0
+  Ehealth: 0
   Lives: 3
+  Healthbar: {fileID: 0}
 --- !u!4 &804311918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5832098498305096219, guid: 4e0a7e0284124419d953847c9069c450, type: 3}
