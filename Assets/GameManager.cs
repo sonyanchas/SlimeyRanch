@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int Ehealth;
     public int Lives;
     public Image Healthbar;
+    public int Slimes;
+    public string[] inventory;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
         Health = 100;
         Ehealth = 10;
         Lives = 3;
+        Slimes = 0;
+        inventory = new string[5];
         UpdateHealthBar();
     }
 
@@ -39,5 +43,17 @@ public class GameManager : MonoBehaviour
     {
         Healthbar.fillAmount = (float)Health / 100f;
     }
-
+    public void AddToInventory(string item)
+    {
+        // Check if there's space in the inventory
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i] == null)
+            {
+                // If the slot is empty, add the item and break the loop
+                inventory[i] = item;
+                break;
+            }
+        }
+    }
 }

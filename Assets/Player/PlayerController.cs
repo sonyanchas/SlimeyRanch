@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     AudioSource audioSource2;
     [SerializeField] float Speed = 0f;
     [SerializeField] float jump = 0f;
-    [SerializeField] float MinX;
-    [SerializeField] float MinY;
     bool isMoving = false;
     bool isJumping = false;
     Animator animator;
@@ -48,16 +46,12 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            gm.Health -= 20;
-            UnityEngine.UI.Image healthbar = gm.Healthbar;
-        }*/
 
-        if (gm.Health == 0)
-        {
+
+        if  (gm.Health == 0 || gm.Healthbar.fillAmount <= 0.01f)
+            {
             gm.Lives -= 1;
-            transform.position = new Vector3(MinX, MinY, 0f);
+            transform.position = new Vector3(-6.49f, -3.25f, 0f);
             gm.Health += 100;
             gm.Healthbar.fillAmount = 100;
 
@@ -68,12 +62,21 @@ public class PlayerController : MonoBehaviour
             gm.Health -= 10;
             StartCoroutine(FlashRed());
             gm.UpdateHealthBar();
-            if (!audioSource2.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
-            {
-                audioSource2.Play();
-            }
-
+            audioSource2.Play();
+        } 
+        if (collision.gameObject.CompareTag("Finish"))
+          {
+           SceneManager.LoadScene(sceneName);
+          }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gm.Health -= 10;
+            StartCoroutine(FlashRed());
+            gm.UpdateHealthBar();
+            audioSource2.Play();
         }
+
+
 
     }
     void Update()
@@ -92,7 +95,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 gm.Lives -= 1;
-                transform.position = new Vector3(MinX, MinY, 0f);
+                transform.position = new Vector3(-6.49f, -3.25f, 0f);
                 gm.Health += 100;
             }
         }
@@ -133,10 +136,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
 
         }
-        if (collision.gameObject.CompareTag("Finish"))
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+   
 
     }
     
