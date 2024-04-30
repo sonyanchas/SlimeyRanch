@@ -4,11 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
+    
     public string sceneName;
     Rigidbody2D rb;
-    AudioSource audioSource;
+    AudioSource audioSource1;
+    AudioSource audioSource2;
     [SerializeField] float Speed = 0f;
     [SerializeField] float jump = 0f;
     bool isMoving = false;
@@ -22,7 +25,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource1 = GetComponent<AudioSource>();
+        audioSource2 = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
         ren = GetComponent<Renderer>();
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             gm.Health -= 10;
             StartCoroutine(FlashRed());
+            gm.UpdateHealthBar();
 
         }
 
@@ -91,9 +96,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.right);
-            if (!audioSource.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
             {
-                audioSource.Play();
+                audioSource1.Play();
             }
         }
         else if (Input.GetKey(KeyCode.A))
@@ -103,15 +108,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.left);
-            if (!audioSource.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
             {
-                audioSource.Play();
+                audioSource1.Play();
             }
         }
         else
         {
             isMoving = false;
-            audioSource.Stop();
+            audioSource1.Stop();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

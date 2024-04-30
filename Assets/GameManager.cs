@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text ScoreUIText;
     public int Score;
-    public int Damage;
+    //public int Damage;
     [SerializeField] TMP_Text HealthUIText;
     [SerializeField] TMP_Text LivesUIText;
     public int Health;
@@ -19,10 +19,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Score = 0 ; // Initialize score as 0
-        Damage = 100;
+        //Damage = 100;
         Health = 100;
         Ehealth = 10;
         Lives = 3;
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -34,9 +35,9 @@ public class GameManager : MonoBehaviour
         //HealthUIText.text = Health.ToString();
 
     }
-    public void takedamage(int Damage)
+    public void UpdateHealthBar()
     {
-        Health -= Damage;
-        Healthbar.fillAmount = Health / 100f;
+        Healthbar.fillAmount = (float)Health / 100f;
     }
+
 }
