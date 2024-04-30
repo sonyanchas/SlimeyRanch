@@ -39,6 +39,7 @@ public class EnemyController : MonoBehaviour
             {
                 // Reduce enemy health
                 TakeDamage(10); // You can change the damage value as needed
+                spriteRenderer.material.color = Color.red;
             }
         }
         if (eh.Ehealth <= 0)

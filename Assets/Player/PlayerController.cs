@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameManager gm;
     Collision2D collision;
+    Renderer ren;
     public int health = 100;
 
     void Start()
@@ -24,14 +25,29 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
+        ren = GetComponent<Renderer>();
     }
+
+    IEnumerator FlashRed()
+    {
+        // Change the color to red
+        ren.material.color = Color.red;
+
+        // Wait for a short duration (you can adjust this as needed)
+        yield return new WaitForSeconds(0.5f);
+
+        // Change the color back to white
+        ren.material.color = Color.white;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        /*if (collision.gameObject.CompareTag("Obstacle"))
         {
             gm.Health -= 20;
             UnityEngine.UI.Image healthbar = gm.Healthbar;
-        }
+        }*/
+
         if (gm.Health == 0)
         {
             gm.Lives -= 1;
@@ -39,10 +55,13 @@ public class PlayerController : MonoBehaviour
             gm.Health += 100;
 
         }
-        /*if (collision.gameObject.CompareTag("Enemy"))
+
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             gm.Health -= 10;
-        }*/
+            StartCoroutine(FlashRed());
+
+        }
 
     }
     void Update()
@@ -50,8 +69,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Left", false);
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
+        //ren.material.color = Color.white;
 
-        if (transform.position.y < -6.66f)
+        if (transform.position.y < -8f)
         {
             if (gm.Lives <= 0)
             {
