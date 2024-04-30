@@ -452,6 +452,8 @@ MonoBehaviour:
   sceneName: Scene2
   Speed: 3
   jump: 8
+  MinX: -6.49
+  MinY: -3.25
   health: 100
 --- !u!82 &217591844
 AudioSource:
