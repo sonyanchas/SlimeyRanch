@@ -4,11 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
+    
     public string sceneName;
     Rigidbody2D rb;
-    AudioSource audioSource;
+    AudioSource audioSource1;
+    AudioSource audioSource2;
     [SerializeField] float Speed = 0f;
     [SerializeField] float jump = 0f;
     [SerializeField] float MinX;
@@ -18,22 +21,39 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameManager gm;
     Collision2D collision;
+    Renderer ren;
     public int health = 100;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource1 = GetComponent<AudioSource>();
+        audioSource2 = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();  // create a reference to our animator component
         gm = FindObjectOfType<GameManager>();
+        ren = GetComponent<Renderer>();
     }
+
+    IEnumerator FlashRed()
+    {
+        // Change the color to red
+        ren.material.color = Color.red;
+
+        // Wait for a short duration (you can adjust this as needed)
+        yield return new WaitForSeconds(0.5f);
+
+        // Change the color back to white
+        ren.material.color = Color.white;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        /*if (collision.gameObject.CompareTag("Obstacle"))
         {
             gm.Health -= 20;
             UnityEngine.UI.Image healthbar = gm.Healthbar;
-        }
+        }*/
+
         if (gm.Health == 0)
         {
             gm.Lives -= 1;
@@ -41,10 +61,14 @@ public class PlayerController : MonoBehaviour
             gm.Health += 100;
 
         }
-        /*if (collision.gameObject.CompareTag("Enemy"))
+
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             gm.Health -= 10;
-        }*/
+            StartCoroutine(FlashRed());
+            gm.UpdateHealthBar();
+
+        }
 
     }
     void Update()
@@ -52,8 +76,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Left", false);
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
+        //ren.material.color = Color.white;
 
-        if (transform.position.y < -6.66f)
+        if (transform.position.y < -8f)
         {
             if (gm.Lives <= 0)
             {
@@ -73,9 +98,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.right);
-            if (!audioSource.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
             {
-                audioSource.Play();
+                audioSource1.Play();
             }
         }
         else if (Input.GetKey(KeyCode.A))
@@ -85,15 +110,15 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.left);
-            if (!audioSource.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
             {
-                audioSource.Play();
+                audioSource1.Play();
             }
         }
         else
         {
             isMoving = false;
-            audioSource.Stop();
+            audioSource1.Stop();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

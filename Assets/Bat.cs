@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Bat : MonoBehaviour
 {
     [SerializeField] float Speed;
     [SerializeField] float MinX = 0f;
@@ -39,7 +39,6 @@ public class EnemyController : MonoBehaviour
             {
                 // Reduce enemy health
                 TakeDamage(10); // You can change the damage value as needed
-                spriteRenderer.material.color = Color.red;
             }
         }
         if (eh.Ehealth <= 0)
@@ -55,38 +54,37 @@ public class EnemyController : MonoBehaviour
         eh.Ehealth -= damageAmount;
     }
 
-// FixedUpdate is called at fixed time intervals
-void FixedUpdate()
+    // FixedUpdate is called at fixed time intervals
+    void FixedUpdate()
+    {
+        // Move the enemy
+        if (movingRight)
         {
-            // Move the enemy
-            if (movingRight)
-            {
-                transform.Translate(Vector3.right * Speed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                transform.Translate(Vector3.left * Speed * Time.fixedDeltaTime);
-            }
-
-            // Check if the enemy reaches the boundaries
-            if (transform.position.x >= MaxX)
-            {
-                movingRight = false;
-                animator.SetBool("runleft", true);
-            }
-            else if (transform.position.x <= MinX)
-            {
-                movingRight = true;
-                animator.SetBool("runright", true);
-            }
-            else
-            {
-                // If not at the boundaries, stop running animation
-                animator.SetBool("runleft", false);
-                animator.SetBool("runright", false);
-            }
+            transform.Translate(Vector3.right * Speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            transform.Translate(Vector3.left * Speed * Time.fixedDeltaTime);
         }
 
+        // Check if the enemy reaches the boundaries
+        if (transform.position.x >= MaxX)
+        {
+            movingRight = false;
+            animator.SetBool("LEFT", true);
+        }
+        else if (transform.position.x <= MinX)
+        {
+            movingRight = true;
+            animator.SetBool("RIGHT", true);
+        }
+        else
+        {
+            // If not at the boundaries, stop running animation
+            animator.SetBool("LEFT", false);
+            animator.SetBool("RIGHT", false);
+        }
     }
 
+}
 
