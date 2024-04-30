@@ -19,10 +19,11 @@ public class EnemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        eh = FindObjectOfType<GameManager>();
 
     }
 
-    public void takedamage()
+    /*public void takedamage()
     {
         // Check if the left mouse button is clicked
         if (Input.GetMouseButtonDown(0))
@@ -47,16 +48,41 @@ public class EnemyController : MonoBehaviour
             // Destroy the enemy object
             Destroy(gameObject);
         }
-    }
+    }*/
 
     // Method to handle taking damage
     public void TakeDamage(int damageAmount)
     {
         eh.Ehealth -= damageAmount;
     }
+   void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Get the mouse position in the game world
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f; // Ensure the z-coordinate is appropriate for 2D games
 
-// FixedUpdate is called at fixed time intervals
-void FixedUpdate()
+            // Perform a collision check at the mouse position
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos);
+
+            // Check if the collision is with this enemy
+            if (hitCollider != null && hitCollider.gameObject == gameObject)
+            {
+                // Reduce enemy health
+                TakeDamage(10); // You can change the damage value as needed
+                spriteRenderer.material.color = Color.red;
+            }
+        }
+        if (eh.Ehealth <= 0)
+        {
+            // Destroy the enemy object
+            Destroy(gameObject);
+        }
+    }
+
+    // FixedUpdate is called at fixed time intervals
+    void FixedUpdate()
         {
             // Move the enemy
             if (movingRight)

@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
             gm.Lives -= 1;
             transform.position = new Vector3(-6.49f, -3.25f, 0f);
             gm.Health += 100;
+            gm.Healthbar.fillAmount = 100;
 
         }
 
@@ -65,6 +66,10 @@ public class PlayerController : MonoBehaviour
             gm.Health -= 10;
             StartCoroutine(FlashRed());
             gm.UpdateHealthBar();
+            if (!audioSource2.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            {
+                audioSource2.Play();
+            }
 
         }
 
@@ -133,7 +138,8 @@ public class PlayerController : MonoBehaviour
 
     }
     
-    }
+}
+
 
 
 
