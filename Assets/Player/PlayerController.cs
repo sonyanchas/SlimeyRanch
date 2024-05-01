@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     AudioSource audioSource2;
     [SerializeField] float Speed = 0f;
     [SerializeField] float jump = 0f;
+    [SerializeField] float spawnX = 0f;
+    [SerializeField] float spawnY = 0f;
     bool isMoving = false;
     bool isJumping = false;
     Animator animator;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+  
         rb = GetComponent<Rigidbody2D>();
         audioSource1 = GetComponent<AudioSource>();
         audioSource2 = GetComponent<AudioSource>();
@@ -51,7 +54,8 @@ public class PlayerController : MonoBehaviour
         if  (gm.Health == 0 || gm.Healthbar.fillAmount <= 0.01f)
             {
             gm.Lives -= 1;
-            transform.position = new Vector3(-6.49f, -3.25f, 0f);
+
+            transform.position = new Vector3(spawnX, spawnY, 0f);
             gm.Health += 100;
             gm.Healthbar.fillAmount = 100;
 
@@ -65,8 +69,6 @@ public class PlayerController : MonoBehaviour
             audioSource2.Play();
         } 
      
-
-
 
     }
 

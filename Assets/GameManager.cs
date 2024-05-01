@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public int Ehealth;
     public int Lives;
     public Image Healthbar;
-
     int currentSceneIndex;
     // Start is called before the first frame update
     void Start()
@@ -51,12 +50,17 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Scene2");
         }
-        else if (currentSceneIndex == 1)  // Assuming scene 2 has build index 1
+     if (currentSceneIndex == 1)  // Assuming scene 2 has build index 1
         {
             SceneManager.LoadScene("Scene3"); // Load scene 3
         }
+     if (currentSceneIndex == 2)  // Assuming scene 2 has build index 
         {
             SceneManager.LoadScene("Scene4");
+        }
+        if (currentSceneIndex == 3)  // Assuming scene 2 has build index 
+        {
+            SceneManager.LoadScene("boss");
         }
 
     }

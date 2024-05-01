@@ -9,6 +9,7 @@ public class Bat : MonoBehaviour
     [SerializeField] float MaxX = 0f;
     [SerializeField] int damageAmount;
     Animator animator;
+    AudioSource audioSource1;
     SpriteRenderer spriteRenderer;
     bool movingRight = true;
     GameManager eh;
@@ -19,39 +20,53 @@ public class Bat : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        eh = FindObjectOfType<GameManager>();
+        audioSource1 = GetComponent<AudioSource>();
 
     }
 
-    public void takedamage()
+    IEnumerator FlashRed()
     {
-        // Check if the left mouse button is clicked
-        if (Input.GetMouseButtonDown(0))
-        {
-            // Get the mouse position in the game world
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f; // Ensure the z-coordinate is appropriate for 2D games
+        // Change the color to red
+        spriteRenderer.material.color = Color.red;
 
-            // Perform a collision check at the mouse position
-            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos);
+        // Wait for a short duration (you can adjust this as needed)
+        yield return new WaitForSeconds(0.5f);
 
-            // Check if the collision is with this enemy
-            if (hitCollider != null && hitCollider.gameObject == gameObject)
-            {
-                // Reduce enemy health
-                TakeDamage(10); // You can change the damage value as needed
-            }
-        }
-        if (eh.Ehealth <= 0)
-        {
-            // Destroy the enemy object
-            Destroy(gameObject);
-        }
+        // Change the color back to white
+        spriteRenderer.material.color = Color.white;
     }
+
+
 
     // Method to handle taking damage
     public void TakeDamage(int damageAmount)
     {
         eh.Ehealth -= damageAmount;
+    }
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePos);
+
+            if (hitCollider != null && hitCollider.gameObject == gameObject)
+            {
+                TakeDamage(10);
+                StartCoroutine(FlashRed());
+                audioSource1.Play();
+
+                // Check if the enemy's health is zero or less after taking damage
+                if (eh.Ehealth <= 0)
+                {
+                    Destroy(gameObject); // Destroy the enemy object
+                    //eh.Slimes += 1; // Increment the number of slimes in GameManager
+                }
+            }
+        }
     }
 
     // FixedUpdate is called at fixed time intervals
@@ -87,4 +102,5 @@ public class Bat : MonoBehaviour
     }
 
 }
+
 
