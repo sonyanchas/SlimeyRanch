@@ -46,19 +46,19 @@ public class GameManager : MonoBehaviour
 
     public void GetSceneChange()
     {
-     if (currentSceneIndex == 0)  // Assuming scene 1 has build index 0
+     if (currentSceneIndex == 1)  // Assuming scene 1 has build index 0
         {
             SceneManager.LoadScene("Scene2");
         }
-     if (currentSceneIndex == 1)  // Assuming scene 2 has build index 1
+     if (currentSceneIndex == 2)  // Assuming scene 2 has build index 1
         {
             SceneManager.LoadScene("Scene3"); // Load scene 3
         }
-     if (currentSceneIndex == 2)  // Assuming scene 2 has build index 
+     if (currentSceneIndex == 3)  // Assuming scene 2 has build index 
         {
             SceneManager.LoadScene("Scene4");
         }
-        if (currentSceneIndex == 3)  // Assuming scene 2 has build index 
+        if (currentSceneIndex == 4)  // Assuming scene 2 has build index 
         {
             SceneManager.LoadScene("boss");
         }
