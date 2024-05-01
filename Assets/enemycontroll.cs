@@ -44,35 +44,33 @@ public class EnemyController : MonoBehaviour
     {
         eh.Ehealth -= damageAmount;
     }
-   void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // Get the mouse position in the game world
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f; // Ensure the z-coordinate is appropriate for 2D games
+            mousePos.z = 0f;
 
-            // Perform a collision check at the mouse position
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePos);
 
-            // Check if the collision is with this enemy
             if (hitCollider != null && hitCollider.gameObject == gameObject)
             {
-                // Reduce enemy health
-                TakeDamage(10); // You can change the damage value as needed
+                TakeDamage(10);
                 StartCoroutine(FlashRed());
                 audioSource1.Play();
+
+                // Check if the enemy's health is zero or less after taking damage
+                if (eh.Ehealth <= 0)
+                {
+                    Destroy(gameObject); // Destroy the enemy object
+                    eh.Slimes += 1; // Increment the number of slimes in GameManager
+                }
             }
-        }
-        if (eh.Ehealth <= 0)
-        {
-            // Destroy the enemy object
-            Destroy(gameObject);
         }
     }
 
-    // FixedUpdate is called at fixed time intervals
-    void FixedUpdate()
+        // FixedUpdate is called at fixed time intervals
+        void FixedUpdate()
         {
             // Move the enemy
             if (movingRight)

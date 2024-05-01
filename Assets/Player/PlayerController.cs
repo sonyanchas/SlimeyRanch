@@ -64,10 +64,32 @@ public class PlayerController : MonoBehaviour
             gm.UpdateHealthBar();
             audioSource2.Play();
         } 
-        /*if (collision.gameObject.CompareTag("Finish"))
-          {
-           SceneManager.LoadScene(sceneName);
-          }*/
+     
+
+   
+
+        
+
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+        if (gm.Health == 0 || gm.Healthbar.fillAmount <= 0.01f)
+        {
+            gm.Lives -= 1;
+            transform.position = new Vector3(-6.49f, -3.25f, 0f);
+            gm.Health += 100;
+            gm.Healthbar.fillAmount = 100;
+
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            // Load the specified scene
+            SceneManager.LoadScene(sceneName);
+        }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -76,19 +98,6 @@ public class PlayerController : MonoBehaviour
             gm.UpdateHealthBar();
             audioSource2.Play();
         }
-
-        
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if the colliding object has the tag "Finish"
-        if (collision.gameObject.CompareTag("Finish"))
-        {
-            // Load the specified scene
-            SceneManager.LoadScene(sceneName);
-        }
     }
 
     void Update()
@@ -96,9 +105,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Left", false);
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
-        animator.SetBool("SlashL", false);
-        animator.SetBool("SlashR", false);
-        //ren.material.color = Color.white;
+        
 
         if (transform.position.y < -8f)
         {
@@ -147,21 +154,10 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             animator.SetBool("Left", false);
             animator.SetBool("Right", false);
-            animator.SetBool("SlashL", false);
-            animator.SetBool("SlashL", false);
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
 
         }
-        if (Input.GetMouseButtonDown(0) && transform.localScale.x < 0f)
-        {
-            animator.SetBool("SlashL", true);
-            
-        }
-        if (Input.GetMouseButtonDown(0) && transform.localScale.x > 0f)
-        {
-            animator.SetBool("SlashR", true);
-
-        }
+     
 
     }
     
