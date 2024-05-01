@@ -66,9 +66,7 @@ public class PlayerController : MonoBehaviour
         } 
      
 
-   
 
-        
 
     }
 
@@ -87,8 +85,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Finish"))
         {
-            // Load the specified scene
-            SceneManager.LoadScene(sceneName);
+            gm.GetSceneChange();
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

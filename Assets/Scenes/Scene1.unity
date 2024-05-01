@@ -2478,7 +2478,7 @@ MonoBehaviour:
   SlimesUIText: {fileID: 0}
   LivesUIText: {fileID: 909972020}
   Health: 100
-  Ehealth: 10
+  Ehealth: 50
   Lives: 3
   Healthbar: {fileID: 1440947832}
   Slimes: 0
