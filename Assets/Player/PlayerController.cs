@@ -64,10 +64,11 @@ public class PlayerController : MonoBehaviour
             gm.UpdateHealthBar();
             audioSource2.Play();
         } 
-        if (collision.gameObject.CompareTag("Finish"))
+        /*if (collision.gameObject.CompareTag("Finish"))
           {
            SceneManager.LoadScene(sceneName);
-          }
+          }*/
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             gm.Health -= 10;
@@ -76,14 +77,27 @@ public class PlayerController : MonoBehaviour
             audioSource2.Play();
         }
 
-
+        
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the colliding object has the tag "Finish"
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            // Load the specified scene
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
     void Update()
     {
         animator.SetBool("Left", false);
         animator.SetBool("Right", false);
         animator.SetBool("Up", false);
+        animator.SetBool("SlashL", false);
+        animator.SetBool("SlashR", false);
         //ren.material.color = Color.white;
 
         if (transform.position.y < -8f)
@@ -106,7 +120,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.right);
-            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying)
             {
                 audioSource1.Play();
             }
@@ -118,7 +132,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Up", false);
             isMoving = true;
             transform.Translate(Speed * Time.deltaTime * Vector2.left);
-            if (!audioSource1.isPlaying /*&& collision.gameObject.CompareTag("Floor")*/)
+            if (!audioSource1.isPlaying)
             {
                 audioSource1.Play();
             }
@@ -133,10 +147,21 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             animator.SetBool("Left", false);
             animator.SetBool("Right", false);
+            animator.SetBool("SlashL", false);
+            animator.SetBool("SlashL", false);
             rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
 
         }
-   
+        if (Input.GetMouseButtonDown(0) && transform.localScale.x < 0f)
+        {
+            animator.SetBool("SlashL", true);
+            
+        }
+        if (Input.GetMouseButtonDown(0) && transform.localScale.x > 0f)
+        {
+            animator.SetBool("SlashR", true);
+
+        }
 
     }
     
