@@ -143,7 +143,7 @@ MonoBehaviour:
   Speed: 5
   MinX: 15.6
   MaxX: 18.2
-  damageAmount: 0
+  damageAmount: 10
 --- !u!95 &112735945
 Animator:
   serializedVersion: 5
@@ -798,7 +798,7 @@ MonoBehaviour:
   Speed: 5
   MinX: -5.4
   MaxX: 0.52
-  damageAmount: 0
+  damageAmount: 10
 --- !u!58 &228459610
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3186,7 +3186,7 @@ MonoBehaviour:
   Speed: 5
   MinX: -5.55
   MaxX: -1.44
-  damageAmount: 0
+  damageAmount: 10
 --- !u!95 &1333757800
 Animator:
   serializedVersion: 5

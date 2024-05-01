@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         
         Score = 0 ; // Initialize score as 0
         Health = 100;
-        Ehealth = 10;
+        Ehealth = 50;
         Lives = 3;
 
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
         if (currentSceneIndex == 4)  // Assuming scene 2 has build index 
         {
-            SceneManager.LoadScene("boss");
+            SceneManager.LoadScene("Boss");
         }
 
     }

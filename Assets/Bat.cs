@@ -55,7 +55,7 @@ public class Bat : MonoBehaviour
 
             if (hitCollider != null && hitCollider.gameObject == gameObject)
             {
-                TakeDamage(10);
+                TakeDamage(damageAmount);
                 StartCoroutine(FlashRed());
                 audioSource1.Play();
 

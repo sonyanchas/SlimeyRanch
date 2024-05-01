@@ -67,8 +67,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlashRed());
             gm.UpdateHealthBar();
             audioSource2.Play();
-        } 
-     
+        }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            gm.Health -= 50;
+            StartCoroutine(FlashRed());
+            gm.UpdateHealthBar();
+            audioSource2.Play();
+        }
 
     }
 

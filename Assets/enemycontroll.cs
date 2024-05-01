@@ -55,14 +55,17 @@ public class EnemyController : MonoBehaviour
 
             if (hitCollider != null && hitCollider.gameObject == gameObject)
             {
-                TakeDamage(10);
+                TakeDamage(damageAmount);
                 StartCoroutine(FlashRed());
                 audioSource1.Play();
+               
 
                 // Check if the enemy's health is zero or less after taking damage
                 if (eh.Ehealth <= 0)
                 {
+                    
                     Destroy(gameObject); // Destroy the enemy object
+                    eh.Ehealth += 50;
                     //eh.Slimes += 1; // Increment the number of slimes in GameManager
                 }
             }
