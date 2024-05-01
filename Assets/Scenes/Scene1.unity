@@ -927,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 115.1}
+  m_AnchoredPosition: {x: 0, y: 137.3}
   m_SizeDelta: {x: 155.4, y: 21.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281372760
@@ -2475,13 +2475,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreUIText: {fileID: 817310808}
   Score: 0
-  SlimesUIText: {fileID: 0}
   LivesUIText: {fileID: 909972020}
   Health: 100
   Ehealth: 50
   Lives: 3
   Healthbar: {fileID: 1440947832}
-  Slimes: 0
 --- !u!1001 &796613805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2642,7 +2640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.9, y: 100.8}
+  m_AnchoredPosition: {x: -136.1, y: 120.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817310808
@@ -2987,7 +2985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.4, y: 100.8}
+  m_AnchoredPosition: {x: 122.6, y: 121}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909972020
@@ -3875,7 +3873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -218.73, y: 113.1}
+  m_AnchoredPosition: {x: -254.4, y: 132.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1374977479
@@ -4597,7 +4595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 212.1, y: 113}
+  m_AnchoredPosition: {x: 245.5, y: 132.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1550591263

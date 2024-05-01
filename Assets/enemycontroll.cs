@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
                 if (eh.Ehealth <= 0)
                 {
                     Destroy(gameObject); // Destroy the enemy object
-                    eh.Slimes += 1; // Increment the number of slimes in GameManager
+                    //eh.Slimes += 1; // Increment the number of slimes in GameManager
                 }
             }
         }
