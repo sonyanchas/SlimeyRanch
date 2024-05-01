@@ -63,6 +63,7 @@ public class Bat : MonoBehaviour
                 if (eh.Ehealth <= 0)
                 {
                     Destroy(gameObject); // Destroy the enemy object
+                    eh.Ehealth += 50;
                     //eh.Slimes += 1; // Increment the number of slimes in GameManager
                 }
             }
